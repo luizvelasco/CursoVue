@@ -7,10 +7,16 @@
 </head>
 <body>
     <div id="app">
-        <p>O meu nome é: {{ name }} e tenho {{ age }} anos</p>
+        <form id="app-form">
+            <input type="text" v-model="input_name" placeholder="Digite seu nome">
+            <input type="submit" value="Enviar" v-on:click="submitForm">
+        </form>
+        <p>O meu nome é: {{ name }}</p>
+        <p>Data binding: {{ input_name }}</p>
     </div>
 
     <script src="src/app.js" defer></script>
+    <!-- Instalação do VUE via CDN -->
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 </body>
 </html>
