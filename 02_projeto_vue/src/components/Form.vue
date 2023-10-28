@@ -1,18 +1,22 @@
 <template>
 <div>
     <h2>Meu formulário</h2>
-    <form action="">
+    <form action="" @submit="enviarFormulario($event)">
         <div>
-            <InputTex />
+           <input type="text" v-model="name">
         </div>
         <div>
-            <InputTex />
+            <input type="text" v-model="email">
         </div>
         <div>
             <Submit />
         </div>
     </form>
-    </div>
+    <p>Conteúdo</p>
+    <p>Conteúdo</p>
+    <p>Conteúdo</p>
+    <p>Conteúdo</p>
+</div>
 </template>
 
 <script>
@@ -24,6 +28,31 @@
         components: {
             InputTex,
             Submit        
+        },
+        data(){
+            return {
+                name: "",
+                email: ""
+            }
+        },
+        methods: {
+            enviarFormulario(e){
+
+                e.preventDefault();
+
+                const name = this.name;
+                const email = this.email;
+                console.log("Formulario enviado");
+
+                console.log("o nome é " + name);
+                console.log("o email é " + email);
+            }
         }
     }
 </script>
+
+<style scoped>
+    p {
+        margin: 150px;
+    }
+</style>
